@@ -16,15 +16,18 @@ import org.testng.annotations.Test;
 //Domaći na git
 public class Main {
     private WebDriver driver;
-    @BeforeMethod
+    @BeforeClass
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\mlade\\IdeaProjects\\chromedriver_win32\\chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = new ChromeDriver();   
+    }
+    @BeforeMethod
+    public void beforeMethod(){
         driver.navigate().to("https://www.telerik.com/support/demos");
         driver.manage().window().maximize();
     }
-    @AfterMethod
-    public void afterMethod(){
+    @AfterClass
+    public void afterClass(){
         driver.close();
     }
     // ne znam da li je trebalo da se testira da li skroluje do te sekcije ili samo naslov sekcije
